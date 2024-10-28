@@ -1,5 +1,7 @@
 const fastify = require("fastify");
 
+require("dotenv").config();
+
 const start = async () => {
   const app = fastify();
   const PORT = process.env.PORT || 8080;
