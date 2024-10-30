@@ -35,7 +35,7 @@ const deliveryPartnerSchema = new mongoose.Schema({
   },
 });
 
-// ADMINSchema
+// ADMIN Schema
 const adminSchema = new mongoose.Schema({
   ...userSchema.obj,
   email: { type: String, required: true, unique: true },
