@@ -1,4 +1,5 @@
 import AdminJS from "adminjs";
+import AdminJSFastify from "@adminjs/fastify";
 import * as AdminJSMongoose from "@adminjs/mongoose";
 import * as Models from "../models/index.js";
 

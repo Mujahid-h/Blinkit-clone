@@ -1,11 +1,11 @@
 import Fastify from "fastify";
 import "dotenv/config";
 import connectDB from "./src/config/db.js";
+import { PORT } from "./src/config/config.js";
 
 const start = async () => {
   const app = Fastify();
   connectDB();
-  const PORT = process.env.PORT || 8080;
   app.listen({ port: PORT, host: "0.0.0.0" }, (err, addr) => {
     if (err) {
       console.log(err);
