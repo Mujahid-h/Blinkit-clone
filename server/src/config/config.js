@@ -1,6 +1,7 @@
 import fastifySession from "@fastify/session";
 import ConnectMongoDBSession from "connect-mongodb-session";
 import "dotenv/config";
+import { Admin } from "../models/index.js";
 
 const MongoDBStore = ConnectMongoDBSession(fastifySession);
 
@@ -14,8 +15,16 @@ sessionStore.on("error", (error) => {
 });
 
 export const authenticate = async (email, password) => {
-  if (email == "mujahid@gmail.com" && password == "123456") {
-    return Promise.resolve({ email, password });
+  if (email && password) {
+    const user = await Admin.findOne({ email });
+    if (!user) {
+      return null;
+    }
+    if (user.password === password) {
+      return Promise.resolve({ email, password });
+    } else {
+      return null;
+    }
   } else {
     return null;
   }

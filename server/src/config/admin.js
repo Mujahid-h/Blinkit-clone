@@ -2,6 +2,7 @@ import AdminJS from "adminjs";
 import AdminJSFastify from "@adminjs/fastify";
 import * as AdminJSMongoose from "@adminjs/mongoose";
 import * as Models from "../models/index.js";
+import { light, dark, noSidebar } from "@adminjs/themes";
 import { authenticate, COOKIE_PASSWORD, sessionStore } from "./config.js";
 
 AdminJS.registerAdapter(AdminJSMongoose);
@@ -36,7 +37,11 @@ export const admin = new AdminJS({
   branding: {
     companyName: "Mujahid.Ltd",
     withMadeWithLove: false,
+    favicon: "",
+    logo: "",
   },
+  defaultTheme: dark.id,
+  availableThemes: [light, dark, noSidebar],
   rootPath: "/admin",
 });
 
