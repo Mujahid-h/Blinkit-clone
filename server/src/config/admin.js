@@ -39,6 +39,12 @@ export const admin = new AdminJS({
     {
       resource: Models.Product,
     },
+    {
+      resource: Models.Order,
+    },
+    {
+      resource: Models.Counter,
+    },
   ],
   branding: {
     companyName: "Mujahid.Ltd",
