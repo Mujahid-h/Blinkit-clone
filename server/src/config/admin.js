@@ -37,8 +37,9 @@ export const admin = new AdminJS({
   branding: {
     companyName: "Mujahid.Ltd",
     withMadeWithLove: false,
-    favicon: "",
-    logo: "",
+    favicon:
+      "https://res.cloudinary.com/dz0msc6pb/image/upload/v1730355180/udzavaxzpv0kifvranum.png",
+    logo: "https://res.cloudinary.com/dz0msc6pb/image/upload/v1730355259/gzl88bsochg1my42rpbi.png",
   },
   defaultTheme: dark.id,
   availableThemes: [light, dark, noSidebar],
