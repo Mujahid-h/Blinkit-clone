@@ -6,7 +6,7 @@ const branchSchema = new mongoose.Schema({
   address: { type: String },
   deliveryPartners: [
     {
-      type: mongoose.Schema.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "DeliveryPartner",
     },
   ],
