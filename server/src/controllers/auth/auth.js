@@ -34,7 +34,7 @@ export const loginCustomer = async (req, reply) => {
 
     const { accessToken, refreshToken } = generateTokens(customer);
 
-    reply.send({
+    return reply.send({
       message: customer
         ? "Login Successfully"
         : "Customer created and logged in",
@@ -64,7 +64,7 @@ export const loginDeliveryPartner = async (req, reply) => {
 
     const { accessToken, refreshToken } = generateTokens(deliveryPartner);
 
-    reply.send({
+    return reply.send({
       message: "Login Successfully",
       accessToken,
       refreshToken,
@@ -102,7 +102,7 @@ export const refreshToken = async (req, reply) => {
 
     const { accessToken, refreshToken: newRefreshToken } = generateTokens(user);
 
-    reply.send({
+    return reply.send({
       message: "Token refreshed successfully!",
       accessToken,
       refreshToken: newRefreshToken,
