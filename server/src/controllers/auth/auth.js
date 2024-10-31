@@ -106,6 +106,7 @@ export const refreshToken = async (req, reply) => {
       message: "Token refreshed successfully!",
       accessToken,
       refreshToken: newRefreshToken,
+      user,
     });
   } catch (error) {
     reply.status(403).send({ message: "Invalid refresh token" });
