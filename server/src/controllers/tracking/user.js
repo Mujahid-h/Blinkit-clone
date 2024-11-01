@@ -2,7 +2,7 @@ import { Customer, DeliveryPartner } from "../../models/User.js";
 
 export const updateUser = async (req, reply) => {
   try {
-    const { userId } = req.userId;
+    const { userId } = req.user;
     const updatedData = req.body;
 
     let user =
