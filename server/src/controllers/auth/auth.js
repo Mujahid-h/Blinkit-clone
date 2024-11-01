@@ -43,23 +43,23 @@ export const loginCustomer = async (req, reply) => {
       customer,
     });
   } catch (error) {
-    reply.status(500).send("An error occured", error);
+    return reply.status(500).send("An error occured", error);
   }
 };
 
 export const loginDeliveryPartner = async (req, reply) => {
   try {
     const { email, password } = req.body;
-    let deliveryPartner = await Customer.findOne({ email });
+    let deliveryPartner = await DeliveryPartner.findOne({ email });
 
     if (!deliveryPartner) {
-      reply.status(404).send({ message: "Deivery partner  not found" });
+      return reply.status(404).send({ message: "Deivery partner  not found" });
     }
 
     const isMatch = password === deliveryPartner.password;
 
     if (!isMatch) {
-      reply.status(400).send({ message: "Inavid credentials" });
+      return reply.status(400).send({ message: "Inavid credentials" });
     }
 
     const { accessToken, refreshToken } = generateTokens(deliveryPartner);
@@ -71,7 +71,7 @@ export const loginDeliveryPartner = async (req, reply) => {
       deliveryPartner,
     });
   } catch (error) {
-    reply.status(500).send({ message: "An error occured", error });
+    return reply.status(500).send({ message: "An error occured", error });
   }
 };
 
@@ -79,7 +79,7 @@ export const refreshToken = async (req, reply) => {
   try {
     const { refreshToken } = req.body;
     if (!refreshToken) {
-      reply.status(403).send({ message: "Refresh token required" });
+      return reply.status(403).send({ message: "Refresh token required" });
     }
 
     const decoded = await jwt.verify(
@@ -89,15 +89,17 @@ export const refreshToken = async (req, reply) => {
     let user;
 
     if (decoded.role === "Customer") {
-      user = await Customer.findOne(decoded.userId);
+      user = await Customer.findById(decoded.userId);
     } else if (decoded.role === "DeliveryPartner") {
-      user = await DeliveryPartner.findOne(decode.userId);
+      user = await DeliveryPartner.findById(decoded.userId);
     } else {
       return reply.status(403).send({ message: "Invalid role" });
     }
 
     if (!user) {
-      return reply.status(403).send({ message: "Invalid refresh token " });
+      return reply
+        .status(404)
+        .send({ message: "Invalid refresh token  or secret" });
     }
 
     const { accessToken, refreshToken: newRefreshToken } = generateTokens(user);
@@ -109,6 +111,33 @@ export const refreshToken = async (req, reply) => {
       user,
     });
   } catch (error) {
-    reply.status(403).send({ message: "Invalid refresh token" });
+    return reply.status(403).send({ message: "Invalid refresh token" });
+  }
+};
+
+export const fetchUser = async (req, reply) => {
+  try {
+    const { userId, role } = req.user;
+
+    let user;
+
+    if (role === "Customer") {
+      user = await Customer.findById(userId);
+    } else if (role === "DeliveryPartner") {
+      user = await DeliveryPartner.findById(userId);
+    } else {
+      return reply.status(403).send({ message: "Invalid role" });
+    }
+
+    if (!user) {
+      return reply.status(404).send({ message: "user not found" });
+    }
+
+    return reply.send({
+      message: "User fetched succesfully!",
+      user,
+    });
+  } catch (error) {
+    return reply.status(500).send({ message: "An error occured" });
   }
 };
