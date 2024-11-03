@@ -15,6 +15,10 @@ export const categories = [
       "https://res.cloudinary.com/dponzgerb/image/upload/v1723444869/category/uic8gcnbzknosdvva13o.png",
   },
   {
+    name: "Clothes and wear",
+    image: "https://cdn-icons-png.flaticon.com/128/821/821528.png",
+  },
+  {
     name: "Munchies",
     image:
       "https://res.cloudinary.com/dponzgerb/image/upload/v1723444869/category/vyakccm3axdyt8yei8wc.png",
