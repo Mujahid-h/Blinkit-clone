@@ -9,6 +9,8 @@ const SplashScreen = () => {
       <Pressable style={styles.button} onPress={() => router.push("/basic")}>
         <Text style={styles.buttonText}>Go to Basic Screen</Text>
       </Pressable>
+
+      <Text style={[styles.text, { marginTop: 50 }]}>Thank you!</Text>
     </View>
   );
 };
