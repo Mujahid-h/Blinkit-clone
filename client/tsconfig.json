@@ -3,10 +3,19 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
+      "@assets/*": ["assets/*"],
+      "@features/*": ["features/*"],
+      "@service/*": ["service/*"],
+      "@navigation/*": ["navigation/*"],
+      "@components/*": ["components/*"],
+      "@state/*": ["state/*"],
+      "@utils/*": ["utils/*"],  
+      "@styles/*": ["styles/*"],  
+    
+    },
+    "typeRoots": ["node_modules/@types", "src/@types"],
+    "types": ["jest"],
+    "baseUrl": "./src/"
   },
   "include": [
     "**/*.ts",
