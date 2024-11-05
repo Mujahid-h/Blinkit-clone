@@ -15,7 +15,6 @@ module.exports = function (api) {
             "@utils": "./src/utils",
             "@features": "./src/features",
             "@service": "./src/service",
-            "@navigation": "./src/navigation",
             "@styles": "./src/styles",
             "@": "./",
             // Add more aliases as needed

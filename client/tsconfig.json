@@ -9,7 +9,6 @@
       "@assets/*": ["assets/*"],
       "@features/*": ["features/*"],
       "@service/*": ["service/*"],
-      "@navigation/*": ["navigation/*"],
       "@customComponent/*": ["components/*"],
       "@state/*": ["state/*"],
       "@utils/*": ["utils/*"],  
