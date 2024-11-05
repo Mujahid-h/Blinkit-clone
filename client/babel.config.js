@@ -3,12 +3,13 @@ module.exports = function (api) {
   return {
     presets: ["babel-preset-expo"],
     plugins: [
+      "react-native-reanimated/plugin",
       [
         "module-resolver",
         {
           root: ["./src"],
           alias: {
-            "@components": "./src/components",
+            "@customComponent": "./src/components",
             "@assets": "./src/assets",
             "@state": "./src/state",
             "@utils": "./src/utils",
@@ -16,6 +17,7 @@ module.exports = function (api) {
             "@service": "./src/service",
             "@navigation": "./src/navigation",
             "@styles": "./src/styles",
+            "@": "./",
             // Add more aliases as needed
           },
         },
