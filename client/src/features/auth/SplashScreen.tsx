@@ -1,12 +1,14 @@
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, View, Pressable, Image } from "react-native";
 import React from "react";
 import { router } from "expo-router";
 import { Colors } from "@utils/Constants";
+import Logo from "@assets/images/splash_logo.jpeg";
+import { screenHeight, screenWidth } from "@utils/Scaling";
 
 const SplashScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>SplashScreen</Text>
+      <Image source={Logo} style={styles.logo} />
     </View>
   );
 };
@@ -20,8 +22,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: Colors.primary,
   },
-  text: {
-    fontSize: 24,
-    marginBottom: 20,
+
+  logo: {
+    width: screenWidth * 0.7,
+    height: screenHeight * 0.7,
+    resizeMode: "contain",
   },
 });
