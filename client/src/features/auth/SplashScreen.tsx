@@ -1,13 +1,24 @@
-import { StyleSheet, Text, View, Image, Alert } from "react-native";
+import { StyleSheet, Text, View, Image, Alert, Button } from "react-native";
 import React, { useEffect } from "react";
 import { Colors } from "@utils/Constants";
 import Logo from "@assets/images/splash_logo.jpeg";
 import { screenHeight, screenWidth } from "@utils/Scaling";
 import * as Location from "expo-location";
 import { useAuthStore } from "@state/authStore";
+import { tokenStorage } from "@state/storage";
+// import { useNavigationUtils } from "@utils/NavigationUtils";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-const SplashScreen = () => {
+type RootStackParamList = {
+  SplashScreen: undefined;
+  CustomerLogin: undefined;
+};
+
+type Props = NativeStackScreenProps<RootStackParamList, "SplashScreen">;
+
+const SplashScreen: React.FC<Props> = ({ navigation }) => {
   const { user, setUser } = useAuthStore();
+  // const { resetAndNavigate } = useNavigationUtils();
 
   useEffect(() => {
     const fetchUserLocation = async () => {
@@ -37,9 +48,24 @@ const SplashScreen = () => {
     fetchUserLocation();
   }, []);
 
+  const tokenCheck = async () => {
+    const accessToken = tokenStorage.getString("accessToken") as String;
+    const refreshToken = tokenStorage.getString("refreshToken") as String;
+
+    if (accessToken) {
+    }
+
+    // resetAndNavigate("CustomerLogin");
+    return false;
+  };
+
   return (
     <View style={styles.container}>
       <Image source={Logo} style={styles.logo} />
+      <Button
+        title="Go to Login"
+        onPress={() => navigation.navigate("CustomerLogin")}
+      />
     </View>
   );
 };
