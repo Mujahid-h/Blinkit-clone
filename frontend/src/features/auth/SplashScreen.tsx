@@ -110,7 +110,7 @@ const SplashScreen = () => {
     };
 
     fetchUserLocation();
-    // tokenCheck();
+    tokenCheck();
   }, []);
 
   const tokenCheck = async () => {
@@ -128,7 +128,6 @@ const SplashScreen = () => {
   return (
     <View style={styles.container}>
       <Image source={Logo} style={styles.logo} />
-      <Button title="Go to Login" onPress={() => navigate("CustomerLogin")} />
     </View>
   );
 };

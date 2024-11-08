@@ -19,7 +19,7 @@ export default function Navigation() {
         <Stack.Screen
           name="CustomerLogin"
           component={CustomerLogin}
-          // options={{ animation: "fade" }}
+          options={{ animation: "fade" }}
         />
         <Stack.Screen
           name="DeliveryLogin"

@@ -1,10 +1,6 @@
-import { View } from "react-native";
+// index.tsx
 import Navigation from "@navigation/Navigation";
 
 export default function Index() {
-  return (
-    <View>
-      <Navigation />
-    </View>
-  );
+  return <Navigation />;
 }
