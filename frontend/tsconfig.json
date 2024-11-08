@@ -1,0 +1,26 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "typeRoots": ["node_modules/@types", "src/@types"],
+    "types": ["jest"],
+    "baseUrl": "./src/",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@features/*": ["features/*"],
+      "@service/*": ["service/*"],
+      "@components/*": ["components/*"],
+      "@state/*": ["state/*"],
+      "@navigation/*": ["navigation/*"],
+      "@utils/*": ["utils/*"],  
+      "@styles/*": ["styles/*"],   
+      "@/*": ["*"],   
+    },
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
+}
