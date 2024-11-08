@@ -110,6 +110,7 @@ const SplashScreen = () => {
     };
 
     fetchUserLocation();
+
     tokenCheck();
   }, []);
 
