@@ -75,7 +75,7 @@
 //   },
 // });
 
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import { StyleSheet, Text, View, Image, Alert, Button } from "react-native";
 import { Colors } from "@utils/Constants";
 import Logo from "@assets/images/splash_logo.jpeg";
@@ -85,7 +85,7 @@ import { useAuthStore } from "@state/authStore";
 import { tokenStorage } from "@state/storage";
 import { navigate, resetAndNavigate } from "@utils/NavigationUtils";
 
-const SplashScreen = () => {
+const SplashScreen: FC = () => {
   const { user, setUser } = useAuthStore();
 
   useEffect(() => {

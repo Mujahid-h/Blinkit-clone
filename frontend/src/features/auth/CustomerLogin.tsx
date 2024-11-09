@@ -1,20 +1,21 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { FC } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-const CustomerLogin = () => {
+const CustomerLogin: FC = () => {
   return (
-    <View style={styles.container}>
-      <Text style={{ color: "#000000" }}>CustomerLogin</Text>
-    </View>
+    <GestureHandlerRootView>
+      <Text> Helloo mF</Text>
+    </GestureHandlerRootView>
   );
 };
 
 export default CustomerLogin;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  // container: {
+  //   flex: 1,
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  // },
 });
