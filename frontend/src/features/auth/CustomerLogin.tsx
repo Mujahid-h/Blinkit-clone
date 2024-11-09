@@ -6,9 +6,11 @@ import CustomSafeAreaView from "@components/global/CustomSafeAreaView";
 const CustomerLogin: FC = () => {
   return (
     <GestureHandlerRootView style={styles.container}>
-      <CustomSafeAreaView>
-        <Text>My custom app should take safe area must </Text>
-      </CustomSafeAreaView>
+      <View style={styles.container}>
+        <CustomSafeAreaView>
+          <Text>My custom app should take safe area must </Text>
+        </CustomSafeAreaView>
+      </View>
     </GestureHandlerRootView>
   );
 };

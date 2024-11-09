@@ -1,18 +1,25 @@
-import { SafeAreaView, StyleSheet, ViewStyle, View } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  ViewStyle,
+  View,
+  Platform,
+} from "react-native";
 import React, { FC, ReactNode } from "react";
+import Constants from "expo-constants";
 
-interface CustomSafeareaViewProps {
+interface CustomSafeAreaViewProps {
   children: ReactNode;
   style?: ViewStyle;
 }
 
-const CustomSafeAreaView: FC<CustomSafeareaViewProps> = ({
+const CustomSafeAreaView: FC<CustomSafeAreaViewProps> = ({
   children,
   style,
 }) => {
   return (
     <SafeAreaView style={[styles.container, style]}>
-      <View style={styles.container}>{children}</View>
+      <View style={[styles.container, styles.androidSafeArea]}>{children}</View>
     </SafeAreaView>
   );
 };
@@ -23,5 +30,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  androidSafeArea: {
+    paddingTop: Platform.OS === "android" ? Constants.statusBarHeight : 0,
   },
 });
