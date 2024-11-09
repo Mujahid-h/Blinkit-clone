@@ -2,13 +2,14 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { FC } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import CustomSafeAreaView from "@components/global/CustomSafeAreaView";
+import ProductSlider from "@components/login/ProductSlider";
 
 const CustomerLogin: FC = () => {
   return (
     <GestureHandlerRootView style={styles.container}>
       <View style={styles.container}>
         <CustomSafeAreaView>
-          <Text>My custom app should take safe area must </Text>
+          <ProductSlider />
         </CustomSafeAreaView>
       </View>
     </GestureHandlerRootView>
