@@ -1,4 +1,4 @@
-import { Animated, StyleSheet, Text, View } from "react-native";
+import { Animated, Image, StyleSheet, Text, View } from "react-native";
 import React, { FC, useState } from "react";
 import {
   GestureHandlerRootView,
@@ -44,7 +44,14 @@ const CustomerLogin: FC = () => {
               keyboardDismissMode={"on-drag"}
               keyboardShouldPersistTaps={"handled"}
               contentContainerStyle={styles.subContainer}
-            ></Animated.ScrollView>
+            >
+              <View style={styles.content}>
+                <Image
+                  source={require("@assets/images/logo.png")}
+                  style={styles.logo}
+                />
+              </View>
+            </Animated.ScrollView>
           </PanGestureHandler>
         </CustomSafeAreaView>
       </View>
@@ -63,5 +70,18 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
     marginBottom: 20,
+  },
+  content: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 20,
+    paddingBottom: 50,
+    backgroundColor: "white",
+  },
+  logo: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginVertical: 10,
   },
 });
