@@ -8,6 +8,8 @@ import {
 import CustomSafeAreaView from "@components/global/CustomSafeAreaView";
 import ProductSlider from "@components/login/ProductSlider";
 import { resetAndNavigate } from "@utils/NavigationUtils";
+import CustomText from "@components/ui/CustomText";
+import { Fonts } from "@utils/Constants";
 
 const CustomerLogin: FC = () => {
   const [gestureSequence, setGestureSequence] = useState<string[]>([]);
@@ -50,6 +52,16 @@ const CustomerLogin: FC = () => {
                   source={require("@assets/images/logo.png")}
                   style={styles.logo}
                 />
+                <CustomText variant="h2" fontFamily={Fonts.Bold}>
+                  Pakistan's first minute app
+                </CustomText>
+                <CustomText
+                  variant="h5"
+                  fontFamily={Fonts.Bold}
+                  style={styles.text}
+                >
+                  Login or Signup
+                </CustomText>
               </View>
             </Animated.ScrollView>
           </PanGestureHandler>
@@ -64,6 +76,11 @@ export default CustomerLogin;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  text: {
+    marginTop: 2,
+    marginBottom: 25,
+    opacity: 0.6,
   },
   subContainer: {
     flex: 1,
