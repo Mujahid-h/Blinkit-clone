@@ -23,7 +23,7 @@ const CustomInput: React.FC<InputProps & TextInputProps> = ({
   ...props
 }) => {
   return (
-    <View>
+    <View style={styles.flexrow}>
       {left}
       <TextInput
         {...props}
@@ -44,20 +44,16 @@ const CustomInput: React.FC<InputProps & TextInputProps> = ({
 export default CustomInput;
 
 const styles = StyleSheet.create({
-  text: {
-    width: "10%",
-    marginLeft: 10,
-  },
-
   flexrow: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    width: "100%",
+    width: "90%",
     borderRadius: 10,
     borderWidth: 0.5,
     marginVertical: 10,
-    backgroundColor: "fff",
+    paddingHorizontal: 15,
+    backgroundColor: "#fff",
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.6,
     shadowRadius: 2,
@@ -66,7 +62,7 @@ const styles = StyleSheet.create({
   },
 
   inputContainer: {
-    width: "75%",
+    width: "70%",
     fontFamily: Fonts.SemiBold,
     fontSize: RFValue(12),
     paddingVertical: 14,

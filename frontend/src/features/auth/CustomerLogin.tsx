@@ -10,9 +10,12 @@ import ProductSlider from "@components/login/ProductSlider";
 import { resetAndNavigate } from "@utils/NavigationUtils";
 import CustomText from "@components/ui/CustomText";
 import { Fonts } from "@utils/Constants";
+import CustomInput from "@components/ui/CustomInput";
 
 const CustomerLogin: FC = () => {
   const [gestureSequence, setGestureSequence] = useState<string[]>([]);
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const gestureHandler = ({ nativeEvent }: any) => {
     if (nativeEvent.state === State.END) {
@@ -57,11 +60,24 @@ const CustomerLogin: FC = () => {
                 </CustomText>
                 <CustomText
                   variant="h5"
-                  fontFamily={Fonts.Bold}
+                  fontFamily={Fonts.SemiBold}
                   style={styles.text}
                 >
                   Login or Signup
                 </CustomText>
+
+                <CustomInput
+                  onChangeText={(text) => setPhoneNumber(text.slice(0, 9))}
+                  onClear={() => setPhoneNumber("")}
+                  value={phoneNumber}
+                  left={
+                    <CustomText variant="h6" fontFamily={Fonts.SemiBold}>
+                      + 92
+                    </CustomText>
+                  }
+                  placeholder="Enter Mobile Number"
+                  inputMode="numeric"
+                />
               </View>
             </Animated.ScrollView>
           </PanGestureHandler>
@@ -94,6 +110,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingBottom: 50,
     backgroundColor: "white",
+    width: "100%",
   },
   logo: {
     width: 50,
