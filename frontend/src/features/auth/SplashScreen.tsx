@@ -103,7 +103,7 @@ const SplashScreen: FC = () => {
 
         await Location.requestBackgroundPermissionsAsync();
         const location = await Location.getCurrentPositionAsync({});
-        console.log("User Location:", location);
+        // console.log("User Location:", location);
       } catch (error) {
         Alert.alert("Error", "Could not fetch location. Please try again.");
       }
