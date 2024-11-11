@@ -13,7 +13,7 @@ import Icon from "@expo/vector-icons/Ionicons";
 interface InputProps {
   left: React.ReactNode;
   onClear?: () => void;
-  right: boolean;
+  right?: boolean;
 }
 
 const CustomInput: React.FC<InputProps & TextInputProps> = ({

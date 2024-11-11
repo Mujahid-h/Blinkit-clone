@@ -11,6 +11,7 @@ import { resetAndNavigate } from "@utils/NavigationUtils";
 import CustomText from "@components/ui/CustomText";
 import { Fonts } from "@utils/Constants";
 import CustomInput from "@components/ui/CustomInput";
+import CustomButton from "@components/ui/CustomButton";
 
 const CustomerLogin: FC = () => {
   const [gestureSequence, setGestureSequence] = useState<string[]>([]);
@@ -36,6 +37,10 @@ const CustomerLogin: FC = () => {
         resetAndNavigate("DeliveryLogin");
       }
     }
+  };
+
+  const handleAuth = async () => {
+    return;
   };
 
   return (
@@ -67,7 +72,7 @@ const CustomerLogin: FC = () => {
                 </CustomText>
 
                 <CustomInput
-                  onChangeText={(text) => setPhoneNumber(text.slice(0, 9))}
+                  onChangeText={(text) => setPhoneNumber(text.slice(0, 10))}
                   onClear={() => setPhoneNumber("")}
                   value={phoneNumber}
                   left={
@@ -77,6 +82,13 @@ const CustomerLogin: FC = () => {
                   }
                   placeholder="Enter Mobile Number"
                   inputMode="numeric"
+                />
+
+                <CustomButton
+                  title="Continue"
+                  onPress={() => handleAuth()}
+                  disabled={phoneNumber.length < 10}
+                  loading={loading}
                 />
               </View>
             </Animated.ScrollView>
@@ -108,7 +120,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingVertical: 20,
-    paddingBottom: 50,
+    paddingBottom: 30,
     backgroundColor: "white",
     width: "100%",
   },
