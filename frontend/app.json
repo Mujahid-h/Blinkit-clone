@@ -7,7 +7,23 @@
     "orientation": "portrait",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-   
+    "fonts": [
+      {
+        "asset": "./src/assets/fonts/Okra-Regular.ttf"
+      },
+      {
+        "asset": "./src/assets/fonts/Okra-Medium.ttf"
+      },
+      {
+        "asset": "./src/assets/fonts/Okra-MediumLight.ttf"
+      },
+      {
+        "asset": "./src/assets/fonts/Okra-Bold.ttf"
+      },
+      {
+        "asset": "./src/assets/fonts/Okra-ExtraBold.ttf"
+      }
+    ],
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
@@ -20,17 +36,15 @@
       "adaptiveIcon": {
         "backgroundColor": "#ffffff"
       },
-        "softwareKeyboardLayoutMode": "resize",
+      "softwareKeyboardLayoutMode": "resize",
       "windowSoftInputMode": "adjustNothing",
       "permissions": ["ACCESS_FINE_LOCATION", "ACCESS_COARSE_LOCATION", "ACCESS_BACKGROUND_LOCATION"]
-
     },
     "web": {
       "bundler": "metro",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": [
-    ],
+    "plugins": [],
     "experiments": {
       "typedRoutes": true
     }
