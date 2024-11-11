@@ -50,7 +50,8 @@
     "react-native-vector-icons": "^10.2.0",
     "react-native-web": "~0.19.10",
     "simple-swizzle": "^0.2.2",
-    "zustand": "^5.0.1"
+    "zustand": "^5.0.1",
+    "expo-linear-gradient": "~13.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

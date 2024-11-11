@@ -73,9 +73,9 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    width: "5%",
+    width: "10%",
     justifyContent: "center",
     alignItems: "center",
-    marginRight: 10,
+    // marginRight: 10,
   },
 });
