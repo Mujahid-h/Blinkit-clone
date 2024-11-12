@@ -18,6 +18,11 @@ export const useAuthStore = create<AuthStore>()(
       setUser: (data) => set({ user: data }),
       setCurrentOrder: (order) => set({ currentOrder: order }),
       logout: () => set({ user: null, currentOrder: null }),
+      // logout: () => {
+      //   tokenStorage.removeItem("accessToken");
+      //   tokenStorage.removeItem("refreshToken");
+      //   set({ user: null, currentOrder: null });
+      // },
     }),
     {
       name: "auth-storage",

@@ -1,6 +1,8 @@
 import {
+  Alert,
   Animated,
   Image,
+  Keyboard,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -22,6 +24,7 @@ import CustomButton from "@components/ui/CustomButton";
 import useKeyboardOffsetHeight from "@utils/useKeyboardOffsetHeight";
 import { RFValue } from "react-native-responsive-fontsize";
 import { LinearGradient } from "expo-linear-gradient";
+import { customerLogin } from "@service/authService";
 
 const CustomerLogin: FC = () => {
   const [gestureSequence, setGestureSequence] = useState<string[]>([]);
@@ -51,7 +54,19 @@ const CustomerLogin: FC = () => {
   }, [keyboardOffsetHeight]);
 
   const handleAuth = async () => {
-    return;
+    Keyboard.dismiss();
+    setLoading(true);
+
+    try {
+      const response = await customerLogin(phoneNumber);
+      console.log(response);
+
+      // resetAndNavigate("ProductDashboard");
+    } catch (error) {
+      Alert.alert("Login Failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const gestureHandler = ({ nativeEvent }: any) => {

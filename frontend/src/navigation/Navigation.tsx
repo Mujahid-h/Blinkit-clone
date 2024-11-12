@@ -5,7 +5,7 @@ import SplashScreen from "@features/auth/SplashScreen";
 import CustomerLogin from "@features/auth/CustomerLogin";
 import DeliveryLogin from "@features/auth/DeliveryLogin";
 import { navigationRef } from "@utils/NavigationUtils";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import ProductDashboard from "@features/dashboard/ProductDashboard";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +17,7 @@ export default function Navigation() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="ProductDashboard" component={ProductDashboard} />
         <Stack.Screen
           name="CustomerLogin"
           component={CustomerLogin}

@@ -25,6 +25,7 @@
     "expo-app-loading": "^2.1.1",
     "expo-constants": "~16.0.2",
     "expo-font": "~12.0.9",
+    "expo-linear-gradient": "~13.0.2",
     "expo-linking": "~6.3.1",
     "expo-location": "~17.0.1",
     "expo-splash-screen": "~0.27.5",
@@ -50,8 +51,7 @@
     "react-native-vector-icons": "^10.2.0",
     "react-native-web": "~0.19.10",
     "simple-swizzle": "^0.2.2",
-    "zustand": "^5.0.1",
-    "expo-linear-gradient": "~13.0.2"
+    "zustand": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
