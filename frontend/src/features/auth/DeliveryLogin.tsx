@@ -1,7 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
 const DeliveryLogin = () => {
+  const [email, setemail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState("");
+
+  const handleLogin = async () => {
+    return;
+  };
+
   return (
     <View>
       <Text>DeliveryLogin</Text>
