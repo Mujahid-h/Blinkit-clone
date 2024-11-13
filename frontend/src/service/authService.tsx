@@ -3,6 +3,7 @@ import { BASE_URL } from "./config";
 import { tokenStorage } from "@state/storage";
 import { useAuthStore } from "@state/authStore";
 import { resetAndNavigate } from "@utils/NavigationUtils";
+import { appAxios } from "./apiInterceptors";
 
 export const customerLogin = async (phone: string) => {
   try {
@@ -24,12 +25,10 @@ export const customerLogin = async (phone: string) => {
 
 export const refetchUser = async (setUser: any) => {
   try {
-    const response = await axios.post(`${BASE_URL}/customer/login`, {
-      setUser,
-    });
+    const response = await appAxios.get(`/user`);
+    setUser(response.data.user);
   } catch (error) {
-    console.error("Login Error:", error);
-    return { error: "Login failed. Please try again." };
+    console.error("Error refetching User:", error);
   }
 };
 
@@ -48,7 +47,7 @@ export const refresh_tokens = async () => {
 
     return new_access_token;
   } catch (error) {
-    console.error("Login Error:", error);
+    console.error("ERROR REFRESHING TOKEN", error);
     await tokenStorage.clearAll();
     resetAndNavigate("CustomerLogin");
   }

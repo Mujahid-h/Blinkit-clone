@@ -85,7 +85,7 @@ import { useAuthStore } from "@state/authStore";
 import { tokenStorage } from "@state/storage";
 import { resetAndNavigate } from "@utils/NavigationUtils";
 import { jwtDecode } from "jwt-decode";
-import { refresh_tokens } from "@service/authService";
+import { refetchUser, refresh_tokens } from "@service/authService";
 
 const SplashScreen: FC = () => {
   const { user, setUser } = useAuthStore();
@@ -139,8 +139,8 @@ const SplashScreen: FC = () => {
 
       if (decodedAccessToken?.exp < currentTime) {
         try {
-          refresh_tokens();
-          // await refetchUser(setUser)
+          await refresh_tokens();
+          await refetchUser(setUser);
         } catch (error) {
           console.log(error);
           Alert.alert("There was an error refreshing token");
