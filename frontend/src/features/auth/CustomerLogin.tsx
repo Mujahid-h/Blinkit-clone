@@ -59,7 +59,7 @@ const CustomerLogin: FC = () => {
 
     try {
       const response = await customerLogin(phoneNumber);
-      console.log(response);
+      console.log("From customer login", response);
 
       // resetAndNavigate("ProductDashboard");
     } catch (error) {

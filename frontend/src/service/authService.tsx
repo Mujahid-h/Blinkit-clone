@@ -6,7 +6,7 @@ import { useAuthStore } from "@state/authStore";
 export const customerLogin = async (phone: string) => {
   try {
     const response = await axios.post(`${BASE_URL}/customer/login`, { phone });
-    console.log(response);
+    console.log("From auth service", response);
     const { accessToken, refreshToken, customer } = response.data;
 
     await tokenStorage.setItem("accessToken", accessToken);
