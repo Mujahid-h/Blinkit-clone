@@ -40,7 +40,7 @@ const CustomerLogin: FC = () => {
   useEffect(() => {
     if (keyboardOffsetHeight == 0) {
       Animated.timing(animatedValue, {
-        toValue: keyboardOffsetHeight * 0.5,
+        toValue: keyboardOffsetHeight * 0.84,
         duration: 500,
         useNativeDriver: true,
       }).start();
@@ -59,9 +59,9 @@ const CustomerLogin: FC = () => {
 
     try {
       const response = await customerLogin(phoneNumber);
-      console.log("From customer login", response);
+      // console.log("From customer login", response);
 
-      // resetAndNavigate("ProductDashboard");
+      resetAndNavigate("ProductDashboard");
     } catch (error) {
       Alert.alert("Login Failed");
     } finally {
