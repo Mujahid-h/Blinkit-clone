@@ -51,4 +51,12 @@ export const tokenStorage = {
       console.error("Error removing data from AsyncStorage", error);
     }
   },
+
+  clearAll: async () => {
+    try {
+      await AsyncStorage.clear(); // Clears all AsyncStorage keys
+    } catch (error) {
+      console.error("Error clearing AsyncStorage", error);
+    }
+  },
 };

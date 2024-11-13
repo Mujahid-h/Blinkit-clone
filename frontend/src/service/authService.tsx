@@ -2,6 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "./config";
 import { tokenStorage } from "@state/storage";
 import { useAuthStore } from "@state/authStore";
+import { resetAndNavigate } from "@utils/NavigationUtils";
 
 export const customerLogin = async (phone: string) => {
   try {
@@ -18,5 +19,37 @@ export const customerLogin = async (phone: string) => {
   } catch (error) {
     console.error("Login Error:", error);
     return { error: "Login failed. Please try again." };
+  }
+};
+
+export const refetchUser = async (setUser: any) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/customer/login`, {
+      setUser,
+    });
+  } catch (error) {
+    console.error("Login Error:", error);
+    return { error: "Login failed. Please try again." };
+  }
+};
+
+export const refresh_tokens = async () => {
+  try {
+    const refreshToken = await tokenStorage.getItem("refreshToken");
+    const response = await axios.post(`${BASE_URL}/refresh-token`, {
+      refreshToken,
+    });
+
+    const new_access_token = response.data.accessToken;
+    const new_refresh_token = response.data.refreshToken;
+
+    await tokenStorage.setItem("accessToken", new_access_token);
+    await tokenStorage.setItem("refreshToken", new_refresh_token);
+
+    return new_access_token;
+  } catch (error) {
+    console.error("Login Error:", error);
+    await tokenStorage.clearAll();
+    resetAndNavigate("CustomerLogin");
   }
 };

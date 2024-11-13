@@ -83,7 +83,9 @@ import { screenHeight, screenWidth } from "@utils/Scaling";
 import * as Location from "expo-location";
 import { useAuthStore } from "@state/authStore";
 import { tokenStorage } from "@state/storage";
-import { navigate, resetAndNavigate } from "@utils/NavigationUtils";
+import { resetAndNavigate } from "@utils/NavigationUtils";
+import { jwtDecode } from "jwt-decode";
+import { refresh_tokens } from "@service/authService";
 
 const SplashScreen: FC = () => {
   const { user, setUser } = useAuthStore();
@@ -114,13 +116,45 @@ const SplashScreen: FC = () => {
     tokenCheck();
   }, []);
 
+  interface DecodedToken {
+    exp: number;
+  }
+
   const tokenCheck = async () => {
     const accessToken = await tokenStorage.getItem("accessToken");
     const refreshToken = await tokenStorage.getItem("refreshToken");
 
     if (accessToken) {
-      // setUser({ accessToken });
-      // resetAndNavigate("CustomerLogin");
+      const decodedAccessToken = jwtDecode<DecodedToken>(accessToken);
+      const decodedRefreshToken = jwtDecode<DecodedToken>(refreshToken);
+
+      const currentTime = Date.now() / 1000;
+
+      if (decodedRefreshToken?.exp < currentTime) {
+        // console.log("Refresh Token Expired")
+        resetAndNavigate("CustomerLogin");
+        Alert.alert("Session Expired", "Please login again");
+        return false;
+      }
+
+      if (decodedAccessToken?.exp < currentTime) {
+        try {
+          refresh_tokens();
+          // await refetchUser(setUser)
+        } catch (error) {
+          console.log(error);
+          Alert.alert("There was an error refreshing token");
+          return false;
+        }
+      }
+
+      if (user?.role === "Customer") {
+        resetAndNavigate("ProductDashboard");
+      } else {
+        resetAndNavigate("DeliveryDashboard");
+      }
+
+      return true;
     } else {
       resetAndNavigate("CustomerLogin");
     }
