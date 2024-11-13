@@ -14,7 +14,7 @@ export const customerLogin = async (phone: string) => {
 
     const { setUser } = useAuthStore.getState();
     setUser(customer);
-    return response.data;
+    // return response.data;
   } catch (error) {
     console.error("Login Error:", error);
     return { error: "Login failed. Please try again." };
