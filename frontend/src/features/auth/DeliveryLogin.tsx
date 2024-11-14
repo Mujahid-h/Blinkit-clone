@@ -1,13 +1,19 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Alert, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 
 const DeliveryLogin = () => {
   const [email, setemail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
-    console.log("Hanlded");
+    setLoading(true);
+    try {
+    } catch (error) {
+      Alert.alert(" Login Failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
