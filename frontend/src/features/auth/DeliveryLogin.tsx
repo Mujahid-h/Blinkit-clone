@@ -7,7 +7,7 @@ const DeliveryLogin = () => {
   const [loading, setLoading] = useState("");
 
   const handleLogin = async () => {
-    return;
+    console.log("Hanlded");
   };
 
   return (
