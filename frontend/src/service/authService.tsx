@@ -53,4 +53,23 @@ export const refresh_tokens = async () => {
   }
 };
 
-export const delivery_login = async () => {};
+export const delivery_login = async (email: any, password: any) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/delivery/login`, {
+      email,
+      password,
+    });
+    // console.log("From auth service", response);
+    const { accessToken, refreshToken, deliveryPartner } = response.data;
+
+    await tokenStorage.setItem("accessToken", accessToken);
+    await tokenStorage.setItem("refreshToken", refreshToken);
+
+    const { setUser } = useAuthStore.getState();
+    setUser(deliveryPartner);
+    // return response.data;
+  } catch (error) {
+    console.error("Login Error:", error);
+    return { error: "Login failed. Please try again." };
+  }
+};
