@@ -1,6 +1,7 @@
 import { Alert, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import { resetAndNavigate } from "@utils/NavigationUtils";
+import { delivery_login } from "@service/authService";
 
 const DeliveryLogin = () => {
   const [email, setemail] = useState("");

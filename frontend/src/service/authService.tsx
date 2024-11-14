@@ -52,3 +52,5 @@ export const refresh_tokens = async () => {
     resetAndNavigate("CustomerLogin");
   }
 };
+
+export const delivery_login = async () => {};
