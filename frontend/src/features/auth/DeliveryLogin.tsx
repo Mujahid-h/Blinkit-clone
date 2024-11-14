@@ -1,4 +1,11 @@
-import { Alert, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  Keyboard,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import { resetAndNavigate } from "@utils/NavigationUtils";
 import { delivery_login } from "@service/authService";
@@ -7,16 +14,21 @@ import { screenHeight } from "@utils/Scaling";
 import LottieView from "lottie-react-native";
 import CustomText from "@components/ui/CustomText";
 import { Fonts } from "@utils/Constants";
+import CustomInput from "@components/ui/CustomInput";
+import Icon from "@expo/vector-icons/Ionicons";
+import { RFValue } from "react-native-responsive-fontsize";
+import CustomButton from "@components/ui/CustomButton";
 
 const DeliveryLogin = () => {
-  const [email, setemail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
     setLoading(true);
+    Keyboard.dismiss();
     try {
-      await delivery_login();
+      await delivery_login(email, password);
       resetAndNavigate("DeliveryDashboard");
     } catch (error) {
       Alert.alert(" Login Failed");
@@ -39,19 +51,58 @@ const DeliveryLogin = () => {
               style={styles.lottie}
               source={require("@assets/animations/delivery_man.json")}
             />
-
-            <CustomText variant="h3" fontFamily={Fonts.Bold}>
-              Delivery Partner Portal
-            </CustomText>
-
-            <CustomText
-              variant="h6"
-              fontFamily={Fonts.SemiBold}
-              style={styles.text}
-            >
-              Faster than Flash ⚡⚡
-            </CustomText>
           </View>
+
+          <CustomText variant="h3" fontFamily={Fonts.Bold}>
+            Delivery Partner Portal
+          </CustomText>
+
+          <CustomText
+            variant="h6"
+            fontFamily={Fonts.SemiBold}
+            style={styles.text}
+          >
+            Faster than Flash ⚡⚡
+          </CustomText>
+
+          <CustomInput
+            left={
+              <Icon
+                name="mail"
+                style={{ marginLeft: 10 }}
+                color="#f8890e"
+                size={RFValue(18)}
+              />
+            }
+            right={false}
+            value={email}
+            onChangeText={setEmail}
+            placeholder="Email"
+            inputMode="email"
+          />
+
+          <CustomInput
+            left={
+              <Icon
+                name="key-sharp"
+                style={{ marginLeft: 10 }}
+                color="#f8890e"
+                size={RFValue(18)}
+              />
+            }
+            right={false}
+            value={password}
+            onChangeText={setPassword}
+            placeholder="Password"
+            secureTextEntry
+          />
+
+          <CustomButton
+            disabled={email.length == 0 || password.length < 8}
+            title="Login"
+            onPress={handleLogin}
+            loading={loading}
+          />
         </View>
       </ScrollView>
     </CustomSafeAreaView>
@@ -71,7 +122,7 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   lottieContainer: {
-    height: screenHeight * 0.12,
+    height: screenHeight * 0.2,
     width: "100%",
   },
   text: {
