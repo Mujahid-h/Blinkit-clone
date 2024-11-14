@@ -1,5 +1,6 @@
 import { Alert, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
+import { resetAndNavigate } from "@utils/NavigationUtils";
 
 const DeliveryLogin = () => {
   const [email, setemail] = useState("");
@@ -9,6 +10,8 @@ const DeliveryLogin = () => {
   const handleLogin = async () => {
     setLoading(true);
     try {
+      await delivery_login();
+      resetAndNavigate("DeliveryDashboard");
     } catch (error) {
       Alert.alert(" Login Failed");
     } finally {
