@@ -3,7 +3,11 @@
 // import { Colors } from "@utils/Constants";
 // import Logo from "@assets/images/splash_logo.jpeg";
 // import { screenHeight, screenWidth } from "@utils/Scaling";
-// import * as Location from "expo-location";
+// import * as Location from "expo-location";console.log("Fetching User Location...");
+// console.log("Fetching User Location...");
+// console.log("User Location:", location);
+// console.log("Refresh Token Expired")
+// console.log(error);
 // import { useAuthStore } from "@state/authStore";
 // import { tokenStorage } from "@state/storage";
 // import { navigate, resetAndNavigate } from "@utils/NavigationUtils";
