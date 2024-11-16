@@ -3,7 +3,7 @@ import React from "react";
 
 const Notice = () => {
   return (
-    <View style={{ backgroundColor: "red", padding: 100 }}>
+    <View>
       <Text>Notice</Text>
     </View>
   );

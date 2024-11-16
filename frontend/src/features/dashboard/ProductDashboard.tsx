@@ -1,14 +1,8 @@
-import {
-  StyleSheet,
-  Text,
-  Animated as RNAnimated,
-  View,
-  SafeAreaView,
-} from "react-native";
+import { StyleSheet, Text, Animated as RNAnimated, View } from "react-native";
 import React, { useEffect, useRef } from "react";
-import CustomSafeAreaView from "@components/global/CustomSafeAreaView";
 import NoticeAnimation from "./NoticeAnimation";
 import { NoticeHeight } from "@utils/Scaling";
+import CustomSafeAreaView from "@components/global/CustomSafeAreaView";
 
 const NOTICE_HEIGHT = -(NoticeHeight + 12);
 
@@ -42,10 +36,11 @@ const ProductDashboard = () => {
   return (
     <NoticeAnimation NoticePostion={NoticePostion}>
       <>
-        <SafeAreaView />
-        <View>
-          <Text>ProductDashboard</Text>
-        </View>
+        <CustomSafeAreaView>
+          <View>
+            <Text>ProductDashboard</Text>
+          </View>
+        </CustomSafeAreaView>
       </>
     </NoticeAnimation>
   );
