@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "assetBundlePatterns": ["./src/assets/fonts/*"],
     "orientation": "portrait",
+    "newArchEnabled": true,
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "fonts": [
