@@ -4,7 +4,7 @@ import React from "react";
 const Notice = () => {
   return (
     <View>
-      <Text>Notice</Text>
+      <Text style={{ padding: 10 }}>Notice</Text>
     </View>
   );
 };
