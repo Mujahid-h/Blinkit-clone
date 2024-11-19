@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Animated as RNAnimated } from "react-native";
+import { StyleSheet, View, Animated as RNAnimated } from "react-native";
 import React, { FC } from "react";
 import { NoticeHeight } from "@utils/Scaling";
 import Notice from "@components/dashboard/Notice";
