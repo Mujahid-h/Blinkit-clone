@@ -5,7 +5,6 @@ import {
   Keyboard,
   SafeAreaView,
   StyleSheet,
-  Text,
   View,
 } from "react-native";
 import React, { FC, useEffect, useRef, useState } from "react";
