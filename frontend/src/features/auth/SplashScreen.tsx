@@ -80,7 +80,7 @@
 // });
 
 import React, { FC, useEffect } from "react";
-import { StyleSheet, Text, View, Image, Alert, Button } from "react-native";
+import { StyleSheet,  View, Image, Alert, Button } from "react-native";
 import { Colors } from "@utils/Constants";
 import Logo from "@assets/images/splash_logo.jpeg";
 import { screenHeight, screenWidth } from "@utils/Scaling";
