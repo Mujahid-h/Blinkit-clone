@@ -1,11 +1,4 @@
-import {
-  Alert,
-  Keyboard,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Alert, Keyboard, ScrollView, StyleSheet, View } from "react-native";
 import React, { useState } from "react";
 import { resetAndNavigate } from "@utils/NavigationUtils";
 import { delivery_login } from "@service/authService";
