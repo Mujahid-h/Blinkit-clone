@@ -35,11 +35,11 @@ const ProductDashboard = () => {
 
   return (
     <NoticeAnimation NoticePostion={NoticePostion}>
-      <>
+      <CustomSafeAreaView>
         <View>
           <Text>ProductDashboard</Text>
         </View>
-      </>
+      </CustomSafeAreaView>
     </NoticeAnimation>
   );
 };
