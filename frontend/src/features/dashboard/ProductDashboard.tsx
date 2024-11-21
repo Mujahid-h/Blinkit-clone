@@ -37,6 +37,9 @@ const ProductDashboard = () => {
     <NoticeAnimation NoticePostion={NoticePostion}>
       <CustomSafeAreaView>
         <View>
+          <Text>
+            Shayad is waja sa nahi dikh raha text q k pichla wala dikh raha ho
+          </Text>
           <Text>ProductDashboard</Text>
         </View>
       </CustomSafeAreaView>
