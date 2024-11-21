@@ -40,6 +40,15 @@ const ProductDashboard = () => {
           <Text>
             Shayad is waja sa nahi dikh raha text q k pichla wala dikh raha ho
           </Text>
+          <Text>
+            Shayad is waja sa nahi dikh raha text q k pichla wala dikh raha ho
+          </Text>
+          <Text>
+            Shayad is waja sa nahi dikh raha text q k pichla wala dikh raha ho
+          </Text>
+          <Text>
+            Shayad is waja sa nahi dikh raha text q k pichla wala dikh raha ho
+          </Text>
           <Text>ProductDashboard</Text>
         </View>
       </CustomSafeAreaView>
