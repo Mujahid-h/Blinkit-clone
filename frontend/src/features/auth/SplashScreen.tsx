@@ -53,29 +53,29 @@ const SplashScreen: FC = () => {
 
       const currentTime = Date.now() / 1000;
 
-      // if (decodedRefreshToken?.exp < currentTime) {
-      //   // console.log("Refresh Token Expired")
-      resetAndNavigate("CustomerLogin");
-      //   Alert.alert("Session Expired", "Please login again");
-      //   return false;
-      // }
+      if (decodedRefreshToken?.exp < currentTime) {
+        // console.log("Refresh Token Expired")
+        resetAndNavigate("CustomerLogin");
+        Alert.alert("Session Expired", "Please login again");
+        return false;
+      }
 
-      // if (decodedAccessToken?.exp < currentTime) {
-      //   try {
-      //     await refresh_tokens();
-      //     await refetchUser(setUser);
-      //   } catch (error) {
-      //     console.log(error);
-      //     Alert.alert("There was an error refreshing token");
-      //     return false;
-      //   }
-      // }
+      if (decodedAccessToken?.exp < currentTime) {
+        try {
+          await refresh_tokens();
+          await refetchUser(setUser);
+        } catch (error) {
+          console.log(error);
+          Alert.alert("There was an error refreshing token");
+          return false;
+        }
+      }
 
-      // if (user?.role === "Customer") {
-      //   resetAndNavigate("ProductDashboard");
-      // } else {
-      //   resetAndNavigate("DeliveryDashboard");
-      // }
+      if (user?.role === "Customer") {
+        resetAndNavigate("ProductDashboard");
+      } else {
+        resetAndNavigate("DeliveryDashboard");
+      }
 
       return true;
     } else {
