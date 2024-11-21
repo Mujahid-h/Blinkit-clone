@@ -48,5 +48,3 @@ const ProductDashboard = () => {
 };
 
 export default ProductDashboard;
-
-const styles = StyleSheet.create({});
