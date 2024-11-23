@@ -1,23 +1,32 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React, { FC } from "react";
-import { NoticeHeight } from "@utils/Scaling";
 import CustomSafeAreaView from "@components/global/CustomSafeAreaView";
 import CustomText from "@components/ui/CustomText";
+import { Fonts } from "@utils/Constants";
+import { NoticeHeight } from "@utils/Scaling";
 
 const Notice: FC = () => {
   return (
-    <View style={{ height: NoticeHeight }}>
-      <View style={styles.container}>
+    <CustomSafeAreaView style={styles.container}>
+      <View style={[styles.container, { height: NoticeHeight }]}>
         <View style={styles.noticeContainer}>
-          <CustomSafeAreaView style={{ padding: 10 }}>
-            <CustomText>It's raining in your location</CustomText>
-            <CustomText>
-              Our delvivery partner may take longer to reach you
-            </CustomText>
-          </CustomSafeAreaView>
+          <CustomText
+            style={styles.heading}
+            variant="h8"
+            fontFamily={Fonts.SemiBold}
+          >
+            It's raining in your location
+          </CustomText>
+          <CustomText
+            style={styles.textCenter}
+            variant="h9"
+            fontFamily={Fonts.Regular}
+          >
+            Our delivery partners may take longer to reach you
+          </CustomText>
         </View>
       </View>
-    </View>
+    </CustomSafeAreaView>
   );
 };
 
@@ -31,5 +40,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#CCD5E4",
+    padding: 10, // Ensure content is not cut off
+  },
+  heading: {
+    textAlign: "center",
+    marginBottom: 8,
+  },
+  textCenter: {
+    textAlign: "center",
+    color: "#2D3875",
   },
 });

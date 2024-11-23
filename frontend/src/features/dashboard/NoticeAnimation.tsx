@@ -26,7 +26,7 @@ const NoticeAnimation: FC<{
           {
             paddingTop: NoticePostion.interpolate({
               inputRange: [NOTICE_HEIGHT, 0],
-              outputRange: [0, NOTICE_HEIGHT + 10],
+              outputRange: [0, NOTICE_HEIGHT + 20],
             }),
           },
         ]}
