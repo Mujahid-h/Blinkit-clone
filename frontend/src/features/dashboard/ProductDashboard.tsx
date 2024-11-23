@@ -1,4 +1,4 @@
-import { StyleSheet, Text, Animated as RNAnimated, View } from "react-native";
+import { Text, Animated as RNAnimated, View } from "react-native";
 import React, { useEffect, useRef } from "react";
 import NoticeAnimation from "./NoticeAnimation";
 import { NoticeHeight } from "@utils/Scaling";
@@ -35,23 +35,13 @@ const ProductDashboard = () => {
 
   return (
     <NoticeAnimation NoticePostion={NoticePostion}>
-      <CustomSafeAreaView>
-        <View>
-          <Text>
-            Shayad is waja sa nahi dikh raha text q k pichla wala dikh raha ho
-          </Text>
-          <Text>
-            Shayad is waja sa nahi dikh raha text q k pichla wala dikh raha ho
-          </Text>
-          <Text>
-            Shayad is waja sa nahi dikh raha text q k pichla wala dikh raha ho
-          </Text>
-          <Text>
-            Shayad is waja sa nahi dikh raha text q k pichla wala dikh raha ho
-          </Text>
-          <Text>ProductDashboard</Text>
-        </View>
-      </CustomSafeAreaView>
+      <>
+        <CustomSafeAreaView>
+          <View>
+            <Text>ProductDashboard</Text>
+          </View>
+        </CustomSafeAreaView>
+      </>
     </NoticeAnimation>
   );
 };

@@ -26,7 +26,7 @@ const NoticeAnimation: FC<{
           {
             paddingTop: NoticePostion.interpolate({
               inputRange: [NOTICE_HEIGHT, 0],
-              outputRange: [0, NOTICE_HEIGHT + 20],
+              outputRange: [0, NOTICE_HEIGHT + 10],
             }),
           },
         ]}
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   container: {
-    width: "100%",
+    flex: 1,
     backgroundColor: "#fff",
   },
 });
