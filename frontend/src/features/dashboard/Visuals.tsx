@@ -4,6 +4,7 @@ import Animated from "react-native-reanimated";
 import { LinearGradient } from "expo-linear-gradient";
 import { darkWeatherColors } from "@utils/Constants";
 import { screenHeight, screenWidth } from "@utils/Scaling";
+import LottieView from "lottie-react-native";
 
 const Visuals: FC = () => {
   return (
@@ -12,6 +13,13 @@ const Visuals: FC = () => {
       <Image
         source={require("@assets/images/cloud.png")}
         style={styles.cloud}
+      />
+      <LottieView
+        autoPlay={true}
+        enableMergePathsAndroidForKitKatAndAbove={true}
+        loop={true}
+        source={require("@assets/animations/raining.json")}
+        style={styles.lottie}
       />
     </Animated.View>
   );
@@ -38,6 +46,6 @@ const styles = StyleSheet.create({
   cloud: {
     width: screenWidth,
     resizeMode: "stretch",
-    height: "100%",
+    height: 100,
   },
 });

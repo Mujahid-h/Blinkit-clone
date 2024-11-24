@@ -1,9 +1,15 @@
-import { Text, Animated as RNAnimated, View } from "react-native";
+import { Text, Animated as RNAnimated, View, StyleSheet } from "react-native";
 import React, { useEffect, useRef } from "react";
 import NoticeAnimation from "./NoticeAnimation";
 import { NoticeHeight } from "@utils/Scaling";
 import CustomSafeAreaView from "@components/global/CustomSafeAreaView";
 import Visuals from "./Visuals";
+import {
+  CollapsibleContainer,
+  CollapsibleHeaderContainer,
+  withCollapsibleContext,
+} from "@r0b0t3d/react-native-collapsible";
+import AnimatedHeader from "./AnimatedHeader";
 
 const NOTICE_HEIGHT = -(NoticeHeight + 12);
 
@@ -39,13 +45,32 @@ const ProductDashboard = () => {
       <>
         <CustomSafeAreaView>
           <Visuals />
-          <View>
-            <Text>ProductDashboard</Text>
-          </View>
+          <CollapsibleContainer style={styles.panelContainer}>
+            <CollapsibleHeaderContainer containerStyle={styles.transparent}>
+              <AnimatedHeader
+                showNotice={() => {
+                  slideDown();
+                  const timeoutId = setTimeout(() => {
+                    slideUp();
+                  }, 3500);
+                  return () => clearTimeout(timeoutId);
+                }}
+              />
+            </CollapsibleHeaderContainer>
+          </CollapsibleContainer>
         </CustomSafeAreaView>
       </>
     </NoticeAnimation>
   );
 };
 
-export default ProductDashboard;
+const styles = StyleSheet.create({
+  panelContainer: {
+    flex: 1,
+  },
+  transparent: {
+    backgroundColor: "transparent",
+  },
+});
+
+export default withCollapsibleContext(ProductDashboard);
