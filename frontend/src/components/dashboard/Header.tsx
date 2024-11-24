@@ -27,7 +27,7 @@ const Header: FC<{ showNotice: () => void }> = ({ showNotice }) => {
           </CustomText>
           <TouchableOpacity style={styles.noticeBtn} onPress={showNotice}>
             <CustomText
-              fontSize={RFValue(5)}
+              fontSize={RFValue(7)}
               style={{ color: "#3B4886" }}
               fontFamily={Fonts.SemiBold}
             >
