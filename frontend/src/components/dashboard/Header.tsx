@@ -18,7 +18,11 @@ const Header: FC<{ showNotice: () => void }> = ({ showNotice }) => {
           Delivery in
         </CustomText>
         <View style={styles.flexRowGap}>
-          <CustomText variant="h2" fontFamily={Fonts.SemiBold}>
+          <CustomText
+            variant="h2"
+            fontFamily={Fonts.SemiBold}
+            style={styles.text}
+          >
             10 minutes
           </CustomText>
           <TouchableOpacity style={styles.noticeBtn} onPress={showNotice}>
