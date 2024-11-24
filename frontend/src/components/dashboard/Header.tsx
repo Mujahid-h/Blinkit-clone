@@ -18,16 +18,17 @@ const Header: FC<{ showNotice: () => void }> = ({ showNotice }) => {
           Delivery in
         </CustomText>
         <View style={styles.flexRowGap}>
-          <CustomText
-            variant="h2"
-            fontFamily={Fonts.SemiBold}
-            fontSize={RFValue(5)}
-            style={{ color: "#3B4886" }}
-          >
+          <CustomText variant="h2" fontFamily={Fonts.SemiBold}>
             10 minutes
           </CustomText>
           <TouchableOpacity style={styles.noticeBtn} onPress={showNotice}>
-            ⛈ Rain
+            <CustomText
+              fontSize={RFValue(5)}
+              style={{ color: "#3B4886" }}
+              fontFamily={Fonts.SemiBold}
+            >
+              ⛈ Rain
+            </CustomText>
           </TouchableOpacity>
         </View>
       </TouchableOpacity>
