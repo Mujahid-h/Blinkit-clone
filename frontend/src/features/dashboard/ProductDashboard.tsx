@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import NoticeAnimation from "./NoticeAnimation";
 import { NoticeHeight } from "@utils/Scaling";
 import CustomSafeAreaView from "@components/global/CustomSafeAreaView";
+import Visuals from "./Visuals";
 
 const NOTICE_HEIGHT = -(NoticeHeight + 12);
 
@@ -11,7 +12,7 @@ const ProductDashboard = () => {
 
   const slideUp = () => {
     RNAnimated.timing(NoticePostion, {
-      toValue: NOTICE_HEIGHT - 41,
+      toValue: NOTICE_HEIGHT - 40,
       duration: 1200,
       useNativeDriver: false,
     }).start();
@@ -37,6 +38,7 @@ const ProductDashboard = () => {
     <NoticeAnimation NoticePostion={NoticePostion}>
       <>
         <CustomSafeAreaView>
+          <Visuals />
           <View>
             <Text>ProductDashboard</Text>
           </View>
