@@ -7,10 +7,12 @@ import Visuals from "./Visuals";
 import {
   CollapsibleContainer,
   CollapsibleHeaderContainer,
+  CollapsibleScrollView,
   withCollapsibleContext,
 } from "@r0b0t3d/react-native-collapsible";
 import AnimatedHeader from "./AnimatedHeader";
 import StickySearchBar from "./StickySearchBar";
+import Content from "@components/dashboard/Content";
 
 const NOTICE_HEIGHT = -(NoticeHeight + 12);
 
@@ -59,6 +61,13 @@ const ProductDashboard = () => {
               />
               <StickySearchBar />
             </CollapsibleHeaderContainer>
+            <CollapsibleScrollView
+              nestedScrollEnabled
+              style={styles.panelContainer}
+              showsVerticalScrollIndicator={false}
+            >
+              <Content />
+            </CollapsibleScrollView>
           </CollapsibleContainer>
         </CustomSafeAreaView>
       </>
