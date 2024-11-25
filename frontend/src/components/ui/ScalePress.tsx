@@ -11,7 +11,7 @@ import React, { FC } from "react";
 interface ScalePressProps {
   onPress?: () => void;
   children: React.ReactNode;
-  style: ViewStyle;
+  style?: ViewStyle;
 }
 
 const ScalePress: FC<ScalePressProps> = ({ onPress, children, style }) => {
