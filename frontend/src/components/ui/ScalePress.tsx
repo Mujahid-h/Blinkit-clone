@@ -18,7 +18,7 @@ const ScalePress: FC<ScalePressProps> = ({ onPress, children, style }) => {
   const scaleValue = new Animated.Value(1);
   const onPressIn = () => {
     Animated.spring(scaleValue, {
-      toValue: 0.92,
+      toValue: 0.8,
       useNativeDriver: true,
     }).start();
   };
