@@ -11,7 +11,7 @@ import React, { FC } from "react";
 interface ScalePressProps {
   onPress?: () => void;
   children: React.ReactNode;
-  style?: ViewStyle;
+  style: ViewStyle;
 }
 
 const ScalePress: FC<ScalePressProps> = ({ onPress, children, style }) => {
@@ -34,7 +34,7 @@ const ScalePress: FC<ScalePressProps> = ({ onPress, children, style }) => {
       onPress={onPress}
       onPressIn={onPressIn}
       onPressOut={onPressOut}
-      {...style}
+      style={style}
     >
       <Animated.View
         style={[{ transform: [{ scale: scaleValue }], width: "100%" }]}
