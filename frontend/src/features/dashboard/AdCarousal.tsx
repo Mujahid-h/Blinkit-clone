@@ -12,7 +12,7 @@ const AdCarousal: FC<{ adData: any }> = ({ adData }) => {
     height: screenWidth * 0.5,
   };
   return (
-    <View style={{ left: -10, marginVertical: 20 }}>
+    <View style={{ left: -20, marginVertical: 20 }}>
       <Carousel
         {...baseOptions}
         loop
@@ -23,8 +23,8 @@ const AdCarousal: FC<{ adData: any }> = ({ adData }) => {
         data={adData}
         mode="parallax"
         modeConfig={{
-          parallaxScrollingOffset: 0.94,
-          parallaxScrollingScale: 0,
+          parallaxScrollingOffset: 0,
+          parallaxScrollingScale: 0.94,
         }}
         renderItem={({ item }: any) => {
           return <Image source={item} style={styles.img} />;
