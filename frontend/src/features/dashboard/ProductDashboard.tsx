@@ -13,6 +13,9 @@ import {
 import AnimatedHeader from "./AnimatedHeader";
 import StickySearchBar from "./StickySearchBar";
 import Content from "@components/dashboard/Content";
+import CustomText from "@components/ui/CustomText";
+import { RFValue } from "react-native-responsive-fontsize";
+import { Fonts } from "@utils/Constants";
 
 const NOTICE_HEIGHT = -(NoticeHeight + 12);
 
@@ -67,6 +70,18 @@ const ProductDashboard = () => {
               showsVerticalScrollIndicator={false}
             >
               <Content />
+              <View style={{ backgroundColor: "#F8F8F8", padding: 20 }}>
+                <CustomText
+                  fontSize={RFValue(32)}
+                  fontFamily={Fonts.Bold}
+                  style={{ opacity: 0.2 }}
+                >
+                  Pakistan's first minute app 🥭
+                </CustomText>
+                <CustomText fontFamily={Fonts.Bold} style={{ opacity: 0.2 }}>
+                  Developed By ♥ Mujahid Hussain
+                </CustomText>
+              </View>
             </CollapsibleScrollView>
           </CollapsibleContainer>
         </CustomSafeAreaView>
