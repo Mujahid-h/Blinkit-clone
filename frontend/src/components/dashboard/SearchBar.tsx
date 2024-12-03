@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import React, { FC } from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { RFValue } from "react-native-responsive-fontsize";
