@@ -10,5 +10,3 @@ const ProductCategories = () => {
 };
 
 export default ProductCategories;
-
-const styles = StyleSheet.create({});
