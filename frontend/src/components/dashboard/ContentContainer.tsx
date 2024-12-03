@@ -1,4 +1,4 @@
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import React, { FC } from "react";
 import ScalePress from "@components/ui/ScalePress";
 import { navigate } from "@utils/NavigationUtils";
