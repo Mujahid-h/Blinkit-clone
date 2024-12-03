@@ -1,4 +1,4 @@
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet } from "react-native";
 import React, { FC } from "react";
 import { useCollapsibleContext } from "@r0b0t3d/react-native-collapsible";
 import Animated, {
