@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import React, { FC } from "react";
 import { useSharedValue } from "react-native-reanimated";
 import { screenWidth } from "@utils/Scaling";
