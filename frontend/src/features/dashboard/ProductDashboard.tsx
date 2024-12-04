@@ -1,4 +1,4 @@
-import { Text, Animated as RNAnimated, View, StyleSheet } from "react-native";
+import { Animated as RNAnimated, View, StyleSheet } from "react-native";
 import React, { useEffect, useRef } from "react";
 import NoticeAnimation from "./NoticeAnimation";
 import { NoticeHeight } from "@utils/Scaling";
