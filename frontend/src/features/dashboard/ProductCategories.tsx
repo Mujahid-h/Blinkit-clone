@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 const ProductCategories = () => {
@@ -10,3 +10,5 @@ const ProductCategories = () => {
 };
 
 export default ProductCategories;
+
+const styles = StyleSheet.create({});
