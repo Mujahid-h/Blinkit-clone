@@ -7,7 +7,7 @@ import { useAuthStore } from "@state/authStore";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 const Header: FC<{ showNotice: () => void }> = ({ showNotice }) => {
-  const { user, setUser } = useAuthStore();
+  const { user } = useAuthStore();
 
   return (
     <View style={styles.subContainer}>
