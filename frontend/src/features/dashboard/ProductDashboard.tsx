@@ -22,6 +22,7 @@ import CustomText from "@components/ui/CustomText";
 import { RFValue } from "react-native-responsive-fontsize";
 import { Fonts } from "@utils/Constants";
 import Animated from "react-native-reanimated";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const NOTICE_HEIGHT = -(NoticeHeight + 12);
 
