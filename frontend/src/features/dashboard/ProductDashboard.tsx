@@ -1,4 +1,9 @@
-import { Animated as RNAnimated, View, StyleSheet } from "react-native";
+import {
+  Animated as RNAnimated,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import React, { useEffect, useRef } from "react";
 import NoticeAnimation from "./NoticeAnimation";
 import { NoticeHeight } from "@utils/Scaling";
@@ -53,7 +58,9 @@ const ProductDashboard = () => {
         <CustomSafeAreaView>
           <Visuals />
 
-          <Animated.View></Animated.View>
+          <Animated.View>
+            <TouchableOpacity></TouchableOpacity>
+          </Animated.View>
           <CollapsibleContainer style={styles.panelContainer}>
             <CollapsibleHeaderContainer containerStyle={styles.transparent}>
               <AnimatedHeader
