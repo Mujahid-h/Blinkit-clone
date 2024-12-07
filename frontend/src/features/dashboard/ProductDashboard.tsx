@@ -63,8 +63,8 @@ const ProductDashboard = () => {
             <TouchableOpacity>
               <Ionicons
                 name="arrow-up-circle-outline"
-                size={24}
-                color="black"
+                size={RFValue(12)}
+                color="white"
               />
             </TouchableOpacity>
           </Animated.View>
