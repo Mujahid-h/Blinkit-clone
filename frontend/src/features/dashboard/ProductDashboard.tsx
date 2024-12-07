@@ -60,7 +60,13 @@ const ProductDashboard = () => {
           <Visuals />
 
           <Animated.View>
-            <TouchableOpacity></TouchableOpacity>
+            <TouchableOpacity>
+              <Ionicons
+                name="arrow-up-circle-outline"
+                size={24}
+                color="black"
+              />
+            </TouchableOpacity>
           </Animated.View>
           <CollapsibleContainer style={styles.panelContainer}>
             <CollapsibleHeaderContainer containerStyle={styles.transparent}>
