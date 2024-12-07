@@ -16,6 +16,7 @@ import Content from "@components/dashboard/Content";
 import CustomText from "@components/ui/CustomText";
 import { RFValue } from "react-native-responsive-fontsize";
 import { Fonts } from "@utils/Constants";
+import Animated from "react-native-reanimated";
 
 const NOTICE_HEIGHT = -(NoticeHeight + 12);
 
@@ -51,6 +52,8 @@ const ProductDashboard = () => {
       <>
         <CustomSafeAreaView>
           <Visuals />
+
+          <Animated.View></Animated.View>
           <CollapsibleContainer style={styles.panelContainer}>
             <CollapsibleHeaderContainer containerStyle={styles.transparent}>
               <AnimatedHeader
