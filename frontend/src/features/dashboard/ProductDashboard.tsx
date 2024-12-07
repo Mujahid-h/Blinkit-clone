@@ -60,12 +60,19 @@ const ProductDashboard = () => {
           <Visuals />
 
           <Animated.View>
-            <TouchableOpacity>
+            <TouchableOpacity
+              style={{ flexDirection: "row", alignItems: "center", gap: 6 }}
+            >
               <Ionicons
                 name="arrow-up-circle-outline"
                 size={RFValue(12)}
                 color="white"
               />
+              <CustomText
+                variant="h9"
+                style={{ color: "#fff" }}
+                fontFamily={Fonts.SemiBold}
+              ></CustomText>
             </TouchableOpacity>
           </Animated.View>
           <CollapsibleContainer style={styles.panelContainer}>
