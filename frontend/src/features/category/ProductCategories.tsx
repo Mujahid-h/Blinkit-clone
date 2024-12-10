@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { FC } from "react";
 
-const ProductCategories = () => {
+const ProductCategories: FC = () => {
   return (
     <View style={styles.container}>
       <Text>ProductCategories</Text>
