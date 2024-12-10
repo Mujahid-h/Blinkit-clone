@@ -7,7 +7,7 @@ import DeliveryLogin from "@features/auth/DeliveryLogin";
 import { navigationRef } from "@utils/NavigationUtils";
 import ProductDashboard from "@features/dashboard/ProductDashboard";
 import DeliveryDashboard from "@features/delivery/DeliveryDashboard";
-import ProductCategories from "@features/dashboard/ProductCategories";
+import ProductCategories from "@features/category/ProductCategories";
 
 const Stack = createNativeStackNavigator();
 
