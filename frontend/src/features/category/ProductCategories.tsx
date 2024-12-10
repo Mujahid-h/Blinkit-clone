@@ -21,4 +21,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+  center: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
