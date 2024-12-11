@@ -6,7 +6,7 @@ const ProductCategories: FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
   const [categoryLoading, setCategoryLoading] = useState<boolean>(true);
   const [products, setProduct] = useState<any[]>([]);
-  const [productLoading, setProductLoading] = useState<boolean>(true);
+  const [productLoading, setProductLoading] = useState<boolean>(false);
 
   return (
     <View style={styles.container}>
