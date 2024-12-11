@@ -1,7 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 const ProductCategories: FC = () => {
+  const [category, setCategory] = useState<any[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<any>();
+  const [categoryLoading, setCategoryLoading] = useState<boolean>(true);
+  const [product, setProduct] = useState<any[]>([]);
+  const [productLoading, setProductLoading] = useState<boolean>(true);
+
   return (
     <View style={styles.container}>
       <Text>ProductCategories</Text>
