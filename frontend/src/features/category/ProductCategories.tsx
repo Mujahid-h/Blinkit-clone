@@ -5,7 +5,7 @@ const ProductCategories: FC = () => {
   const [category, setCategory] = useState<any[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<any>();
   const [categoryLoading, setCategoryLoading] = useState<boolean>(true);
-  const [product, setProduct] = useState<any[]>([]);
+  const [products, setProduct] = useState<any[]>([]);
   const [productLoading, setProductLoading] = useState<boolean>(true);
 
   return (
