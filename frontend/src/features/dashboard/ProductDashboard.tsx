@@ -94,7 +94,9 @@ const ProductDashboard: FC = () => {
                 variant="h9"
                 style={{ color: "#fff" }}
                 fontFamily={Fonts.SemiBold}
-              ></CustomText>
+              >
+                Back to top
+              </CustomText>
             </TouchableOpacity>
           </Animated.View>
           <CollapsibleContainer style={styles.panelContainer}>

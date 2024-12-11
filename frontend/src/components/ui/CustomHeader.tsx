@@ -1,12 +1,40 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { Colors } from "@utils/Constants";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import React, { FC } from "react";
+import { Colors, Fonts } from "@utils/Constants";
+import CustomSafeAreaView from "@components/global/CustomSafeAreaView";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { RFValue } from "react-native-responsive-fontsize";
+import { goBack } from "@utils/NavigationUtils";
+import CustomText from "./CustomText";
 
-const CustomHeader = () => {
+const CustomHeader: FC<{ title: string; search?: boolean }> = ({
+  title,
+  search,
+}) => {
   return (
-    <View>
-      <Text>CustomHeader</Text>
-    </View>
+    <CustomSafeAreaView>
+      <View style={styles.flexRow}>
+        <Pressable onPress={() => goBack()}>
+          <Ionicons
+            name="chevron-back"
+            color={Colors.text}
+            size={RFValue(16)}
+          />
+        </Pressable>
+        <CustomText
+          variant="h5"
+          fontFamily={Fonts.SemiBold}
+          style={styles.text}
+        >
+          {title}
+        </CustomText>
+        <View>
+          {search && (
+            <Ionicons name="search" color={Colors.text} size={RFValue(16)} />
+          )}
+        </View>
+      </View>
+    </CustomSafeAreaView>
   );
 };
 
@@ -22,5 +50,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderBottomWidth: 0.6,
     borderBottomColor: Colors.border,
+  },
+  text: {
+    textAlign: "center",
   },
 });
