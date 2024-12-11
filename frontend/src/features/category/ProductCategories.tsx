@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { FC, useState } from "react";
+import CustomHeader from "@components/ui/CustomHeader";
 
 const ProductCategories: FC = () => {
   const [category, setCategory] = useState<any[]>([]);
@@ -10,7 +11,7 @@ const ProductCategories: FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text>ProductCategories</Text>
+      <CustomHeader title={selectedCategory?.name || "categories"} search />
     </View>
   );
 };
