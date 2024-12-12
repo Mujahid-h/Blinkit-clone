@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { FC } from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { FC, useRef } from "react";
 
 interface SidebarProps {
   selectedCategory: any;
@@ -12,9 +12,14 @@ const Sidebar: FC<SidebarProps> = ({
   categories,
   onCategoryPress,
 }) => {
+  const scrolViewRef = useRef<ScrollView>(null);
   return (
     <View style={styles.sideBar}>
-      <Text>Sidebar</Text>
+      <ScrollView
+        ref={scrolViewRef}
+        contentContainerStyle={{ paddingBottom: 50 }}
+        showsVerticalScrollIndicator={false}
+      ></ScrollView>
     </View>
   );
 };
