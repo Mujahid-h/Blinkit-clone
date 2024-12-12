@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import React, { FC, useEffect, useRef } from "react";
 import Animated, {
+  runOnJS,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
@@ -33,6 +34,7 @@ const Sidebar: FC<SidebarProps> = ({
 
   useEffect(() => {
     let targetIndex = -1;
+
     categories?.forEach((category: any, index: number) => {
       const isSelected = selectedCategory?._id === category?._id;
       animatedValues[0].value = withTiming(isSelected ? 2 : -15, {
@@ -40,6 +42,18 @@ const Sidebar: FC<SidebarProps> = ({
       });
       if (isSelected) targetIndex = index;
     });
+
+    if (targetIndex !== -1) {
+      indicatorPosition.value = withTiming(targetIndex * 100, {
+        duration: 500,
+      });
+      runOnJS(() => {
+        scrolViewRef.current?.scrollTo({
+          y: targetIndex * 100,
+          animated: true,
+        });
+      });
+    }
   }, [selectedCategory]);
 
   const indicatorStyle = useAnimatedStyle(() => ({
