@@ -5,8 +5,12 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { FC, useRef } from "react";
-import Animated, { useSharedValue } from "react-native-reanimated";
+import React, { FC, useEffect, useRef } from "react";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 import CustomText from "@components/ui/CustomText";
 import { RFValue } from "react-native-responsive-fontsize";
 import { Colors } from "@utils/Constants";
@@ -26,6 +30,22 @@ const Sidebar: FC<SidebarProps> = ({
 
   const indicatorPosition = useSharedValue(0);
   const animatedValues = categories?.map(() => useSharedValue(0));
+
+  useEffect(() => {
+    let targetIndex = -1;
+    categories?.forEach((category: any, index: number) => {
+      const isSelected = selectedCategory?._id === category?._id;
+      animatedValues[0].value = withTiming(isSelected ? 2 : -15, {
+        duration: 500,
+      });
+      if (isSelected) targetIndex = index;
+    });
+  }, [selectedCategory]);
+
+  const indicatorStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: indicatorPosition.value }],
+  }));
+
   return (
     <View style={styles.sideBar}>
       <ScrollView
