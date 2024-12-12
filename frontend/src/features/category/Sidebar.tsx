@@ -6,7 +6,7 @@ import {
   View,
 } from "react-native";
 import React, { FC, useRef } from "react";
-import Animated from "react-native-reanimated";
+import Animated, { useSharedValue } from "react-native-reanimated";
 import CustomText from "@components/ui/CustomText";
 import { RFValue } from "react-native-responsive-fontsize";
 import { Colors } from "@utils/Constants";
@@ -23,6 +23,9 @@ const Sidebar: FC<SidebarProps> = ({
   onCategoryPress,
 }) => {
   const scrolViewRef = useRef<ScrollView>(null);
+
+  const indicatorPosition = useSharedValue(0);
+  const animatedValues = categories?.map(() => useSharedValue(0));
   return (
     <View style={styles.sideBar}>
       <ScrollView
