@@ -13,7 +13,7 @@ const Sidebar: FC<SidebarProps> = ({
   onCategoryPress,
 }) => {
   return (
-    <View>
+    <View style={styles.sideBar}>
       <Text>Sidebar</Text>
     </View>
   );
@@ -21,4 +21,12 @@ const Sidebar: FC<SidebarProps> = ({
 
 export default Sidebar;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  sideBar: {
+    width: "24%",
+    backgroundColor: "#fff",
+    borderRightColor: "#eee",
+    borderRightWidth: 0.8,
+    position: "relative",
+  },
+});
