@@ -1,7 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { FC } from "react";
 
-const Sidebar = () => {
+interface SidebarProps {
+  selectedCategory: any;
+  categories: any;
+  onCategoryPress: (category: any) => void;
+}
+
+const Sidebar: FC<SidebarProps> = ({
+  selectedCategory,
+  categories,
+  onCategoryPress,
+}) => {
   return (
     <View>
       <Text>Sidebar</Text>
