@@ -78,6 +78,7 @@ const SplashScreen: FC = () => {
       }
 
       return true;
+      // resetAndNavigate("CustomerLogin");
     } else {
       resetAndNavigate("CustomerLogin");
     }
