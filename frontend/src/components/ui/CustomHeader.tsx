@@ -42,6 +42,7 @@ export default CustomHeader;
 
 const styles = StyleSheet.create({
   flexRow: {
+    // flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderBottomWidth: 0.6,
     borderBottomColor: Colors.border,
+    // zIndex: 999,
   },
   text: {
     textAlign: "center",

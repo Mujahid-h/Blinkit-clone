@@ -1,4 +1,10 @@
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React, { FC, useEffect, useState } from "react";
 import CustomHeader from "@components/ui/CustomHeader";
 import Sidebar from "./Sidebar";
@@ -17,7 +23,7 @@ const ProductCategories: FC = () => {
       const data = await getAllCategories();
       setCategories(data);
       if (data && data.length > 0) {
-        setSelectedCategory(data[0]);
+        setSelectedCategory(data[2]);
       }
     } catch (error) {
       console.log("Error while fetching categories", error);
@@ -33,6 +39,7 @@ const ProductCategories: FC = () => {
   return (
     <View style={styles.container}>
       <CustomHeader title={selectedCategory?.name || "categories"} search />
+
       <View style={styles.subContainer}>
         {categoryLoading ? (
           <ActivityIndicator size={"small"} />
@@ -47,8 +54,6 @@ const ProductCategories: FC = () => {
     </View>
   );
 };
-
-export default ProductCategories;
 
 const styles = StyleSheet.create({
   container: {
@@ -66,3 +71,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
+
+export default ProductCategories;

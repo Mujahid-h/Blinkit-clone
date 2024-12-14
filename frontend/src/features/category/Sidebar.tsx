@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     borderRightColor: "#eee",
     borderRightWidth: 0.8,
     position: "relative",
+    // height: "100%",
   },
   categoryButton: {
     padding: 10,
