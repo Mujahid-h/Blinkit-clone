@@ -1,10 +1,4 @@
-import {
-  ActivityIndicator,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ActivityIndicator, ScrollView, StyleSheet, View } from "react-native";
 import React, { FC, useEffect, useState } from "react";
 import CustomHeader from "@components/ui/CustomHeader";
 import Sidebar from "./Sidebar";
