@@ -60,3 +60,6 @@ console.log(addKeyValue(object, "age", 25));
 // ==============================================================================
 
 const person = { name: "Alice", age: 25, city: "New York" };
+
+const { name, age, city } = person;
+console.log(`Name: ${name}, Age: ${age}, City: ${city}`);
