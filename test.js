@@ -104,6 +104,21 @@ const flattenArray = (arr) => {
 };
 console.log(flattenArray([1, [2, 3], [4, [5, 6]]]));
 // ==============================================================================
+// promise chaining
+const fetchedData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Data fetched", 1000));
+  });
+};
+fetchedData()
+  .then((result) => {
+    console.log(result);
+    return "Data processing";
+  })
+  .then((processedData) => {
+    console.log(processedData);
+    return "solved";
+  });
 // ==============================================================================
 // ==============================================================================
 // ==============================================================================
