@@ -118,6 +118,12 @@ fetchedData()
   .then((processedData) => {
     console.log(processedData);
     return "solved";
+  })
+  .then((finalresult) => {
+    console.log(finalresult);
+  })
+  .catch((error) => {
+    console.log(error);
   });
 // ==============================================================================
 // ==============================================================================
