@@ -125,6 +125,37 @@ fetchedData()
   .catch((error) => {
     console.log(error);
   });
+
+const getUserDetails = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve({ id: 1, name: "John" }), 1000);
+  });
+};
+
+const getAdditionalDetails = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve({ age: 25, location: "New York" }), 3000);
+  });
+};
+
+getUserDetails()
+  .then((result) => {
+    console.log("User fetched ", result);
+    return getAdditionalDetails().then((additionalDetails) => ({
+      userDetails: result,
+      additionalDetails,
+    }));
+  })
+  .then((data) => {
+    console.log("Additional Details: ", data.additionalDetails);
+    return { ...data.userDetails, ...data.additionalDetails };
+  })
+  .then((fullDetails) => {
+    console.log("Full Details: ", fullDetails);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 // ==============================================================================
 // ==============================================================================
 // ==============================================================================
