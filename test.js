@@ -66,20 +66,43 @@ console.log(`Name: ${name}, Age: ${age}, City: ${city}`);
 
 // ==============================================================================
 
-const filterOddNumbers = (arr) => {
-  let oddNumbers = [];
-  for (i in arr) {
-    if (arr[i] % 2 !== 0) i.push(oddNumbers);
+const filterOddNumbers = (arr) => arr.filter((num) => num % 2 !== 0);
+console.log(filterOddNumbers([1, 2, 3, 4, 5])); // [1, 3, 5]
+
+// ==============================================================================
+const sumofArray = (arr) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
   }
-  return oddNumbers;
+  return sum;
 };
-
-console.log(filterOddNumbers([1, 2, 3, 4, 5]));
-// Output: [1, 3, 5]
+console.log(sumofArray([1, 2, 3, 4, 5]));
 
 // ==============================================================================
+const findDuplicates = (arr) => {
+  let duplicates = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === arr[j] && !duplicates.includes(arr[i])) {
+        duplicates.push(arr[i]);
+      }
+    }
+  }
+  return duplicates;
+};
+console.log(findDuplicates([1, 2, 3, 4, 5, , 5, 7, 4, 2]));
 // ==============================================================================
-// ==============================================================================
+const flattenArray = (arr) => {
+  let flatArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      flatArray = flatArray.concat(flattenArray(arr[i]));
+    }
+  }
+  return flatArray;
+};
+console.log(flattenArray([1, [2, 3], [4, [5, 6]]]));
 // ==============================================================================
 // ==============================================================================
 // ==============================================================================
