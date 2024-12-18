@@ -202,9 +202,31 @@ const evenNumbersArray = (arr) => {
 console.log(evenNumbersArray([1, 2, 3, 4, 5]));
 
 // ==============================================================================
+const capitalizeFirstLetter = (sentence) => {
+  return sentence.charAt(0).toUpperCase() + sentence.slice(1).toLowerCase();
+};
+console.log(capitalizeFirstLetter("hello world")); // Output: "Hello world"
+// ==============================================================================
+const rotateArray = (arr, position) => {
+  return [...arr.slice(-position), ...arr.slice(0, -position)];
+};
+console.log(rotateArray([1, 2, 3, 4, 5], 2));
+// ==============================================================================
+const mostOccuringElement = (arr) => {
+  const map = new Map();
+  let max = 0;
+  let result = null;
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    map.set(element, (map.get(element) || 0) + 1);
+    if (map.get(element) > max) {
+      max = map.get(element);
+      result = element;
+    }
+  }
+};
+console.log(mostOccuringElement([1, 1, 1, 2, 4, 2, 4, 5, 4, 4, 4, 2, 2, 1, 1]));
 
-// ==============================================================================
-// ==============================================================================
 // ==============================================================================
 // ==============================================================================
 // ==============================================================================
