@@ -187,7 +187,16 @@ const findSecondLargestNumber = (arr) => {
 };
 console.log(findSecondLargestNumber([1, 2, 3, 4]));
 // ==============================================================================
+const anagramString = (str1, str2) => {
+  if (str1.length !== str2.length) return false; // If the strings are not
+  const sortedStr1 = str1.split("").sort().join("");
+  const sortedStr2 = str2.split("").sort().join("");
+  return sortedStr1 === sortedStr2;
+};
+console.log(anagramString("listen", "silent")); // Output: true
+
 // ==============================================================================
+
 // ==============================================================================
 // ==============================================================================
 // ==============================================================================
