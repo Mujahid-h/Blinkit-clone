@@ -158,6 +158,20 @@ getUserDetails()
     throw new Error(error);
   });
 // ==============================================================================
+const isPrimeNumber = (number) => {
+  if (number < 2) return false; // 0 and 1 are not prime numbers
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false; // If the number is divisible by any number other than 1 and itself, it's not prime
+    }
+  }
+  return true; // If no divisors were found, the number is prime
+};
+
+console.log(isPrimeNumber(8)); // Output: false
+console.log(isPrimeNumber(7)); // Output: true
+console.log(isPrimeNumber(11)); // Output: true
+console.log(isPrimeNumber(8));
 // ==============================================================================
 // ==============================================================================
 // ==============================================================================
