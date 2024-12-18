@@ -180,7 +180,12 @@ const countWords = (sentence) => {
 };
 console.log(countWords("Hello world! How are you?"));
 // ==============================================================================
-
+const findSecondLargestNumber = (arr) => {
+  const sortedArray = arr.sort((a, b) => a - b);
+  if (sortedArray.length < 2) return null; // If the array has less than 2 numbers
+  return sortedArray[sortedArray.length - 2];
+};
+console.log(findSecondLargestNumber([1, 2, 3, 4]));
 // ==============================================================================
 // ==============================================================================
 // ==============================================================================
